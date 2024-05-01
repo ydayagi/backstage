@@ -37,6 +37,11 @@ backend:
     # TODO: once plugins have been migrated we can remove this, but right now it
     # is require for the backend-next to work in this repo
     dangerouslyDisableDefaultAuthPolicy: true
+    externalAccess:
+      - type: static
+        options:
+          token: lBb9+r50NUNYxKicBZob0NjespLBAb9C
+          subject: admin-curl-access
 
   baseUrl: http://localhost:7007
   listen:
@@ -476,3 +481,12 @@ stackstorm:
 
 permission:
   enabled: true
+
+notifications:
+  processors:
+    email:
+      transport:
+        transport: smtp
+        hostname: localhost
+        port: 1025
+      sender: yaya@gmail.com
